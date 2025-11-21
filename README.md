@@ -119,6 +119,52 @@ tr_lhz_filt = tr_lhz.copy().filter(
 
 tr_lhz_filt.plot()
 
+import json
+import numpy as np
+import pandas as pd
+
+filepath = r"C:\Users\Nicholas\Documents\Alaska\_Alaska_Interior\VaultCreek\POKER_05-11-2024_VMT.txt"
+
+with open(filepath, "r") as f:
+    j = json.load(f)
+
+times = pd.to_datetime(j["times"])
+bz_vals = np.array(j["values"][0]["values"], dtype=float)
+
+bz_df = pd.DataFrame({
+    "time": times,
+    "Bz_nT": bz_vals
+})
+
+print(bz_df.head())
+print("Rows:", len(bz_df))
+
+# [return]
+# [header] time, Bz_nT
+# 0 2024-05-11 00:00:00+00:00  54938.730469
+# 1 2024-05-11 00:00:01+00:00  54938.597656
+# 2 2024-05-11 00:00:02+00:00  54938.406250
+# 3 2024-05-11 00:00:03+00:00  54938.171875
+# 4 2024-05-11 00:00:04+00:00  54937.906250
+# Rows: 36001
+
+rom obspy.clients.fdsn import Client
+from obspy import UTCDateTime
+import numpy as np
+
+client = Client("IRIS")
+
+t1 = UTCDateTime("2024-05-11T00:00:00")
+t2 = UTCDateTime("2024-05-11T10:00:00")
+
+st_bhz = client.get_waveforms("AK", "POKR", "", "BHZ", t1, t2)
+tr_bhz = st_bhz[0]
+
+# Clean
+tr_bhz.detrend("linear")
+tr_bhz.detrend("demean")
+
+# AK.POKR..BHZ | 2024-05-11T00:00:00.000000Z - 2024-05-11T09:37:46.180000Z | 50.0 Hz, 1733310 samples
 
 
 
