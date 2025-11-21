@@ -1,6 +1,6 @@
 # Virtual-magnetotellurics
-Magnetotellurics (MT) from unshielded broadband seismometers at high-latitudes "Virtual-MT" (VMT)
-***Welcome! Below is how to translate unshieled Alaska seismometers from the USArray/IRIS & University of Alaska databases***
+## Magnetotellurics (MT) from unshielded broadband seismometers at high-latitudes "Virtual-MT" (VMT)
+## ***Welcome! Below is how to translate unshieled Alaska seismometers from the USArray/IRIS & University of Alaska databases***
 ### useful for determining the coherence between geomagnetic stations, which these stations behave as not physically different from magnetotelluric sensors
 ### sesimic sensors virtually share the geomagnetic field when beneath the auroral oval, where there is 1 million ampere current (I= 1 MA) in the ionosphere-earth waveguide. 
 ---------------------------------------------------------------------------------------------------------
