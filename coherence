@@ -1,6 +1,6 @@
 import obspy
 print("ObsPy version:", obspy.__version__)
-#comment: returns "ObsPy version: 1.4.2"
+# ObsPy version: 1.4.2
 
 st_bhz = client.get_waveforms ("AK", "POKR", "*", "BHZ", t1, t2)
 print(st_bhz)
